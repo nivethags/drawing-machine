@@ -1,24 +1,35 @@
-import logo from './logo.svg';
-import './App.css';
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+
+import BackNeckSelection from "./components/blouse/BackNeckSelection";
+import FrontNeckSelection from "./components/blouse/FrontNeckSelection";
+import SleeveSelection from "./components/blouse/SleeveSelection";
+import MeasurementPage from "./components/blouse/MeasurementPage";
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <BrowserRouter>
+      <Routes>
+        <Route
+          path="/"
+          element={<BackNeckSelection />}
+        />
+
+        <Route
+          path="/blouse/back-neck"
+          element={<BackNeckSelection />}
+        />
+
+        <Route
+          path="/blouse/front-neck"
+          element={<FrontNeckSelection />}
+        />
+        <Route path="/sleeve-selection" element={<SleeveSelection />} />
+        <Route
+          path="/measurements"
+          element={<MeasurementPage />}
+        />
+      </Routes>
+    </BrowserRouter>
   );
 }
 
